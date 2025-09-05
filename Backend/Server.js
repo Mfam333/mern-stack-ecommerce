@@ -6,7 +6,7 @@ import connectDB from "./mongodb/Mongodb.js"
 import cookieParser from "cookie-parser"
 import cartrouter from "./routes/Cart.route.js"
 import couponrouter from "./routes/Coupon.route.js"
-import Paymentrouter from "./routes/payment.route.js"
+import Paymentrouter from "./routes/Payment.route.js"
 import Analyticrouter from "./routes/Analytics.route.js"
 
  import cors from "cors"
