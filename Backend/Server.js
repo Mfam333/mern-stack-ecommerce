@@ -28,7 +28,7 @@ app.use("/api/cart",cartrouter)
 app.use("/api/coupons",couponrouter)
 app.use("/api/payments",Paymentrouter)
 app.use("/api/analytics",Analyticrouter)
-if(process.env.NODE_ENV==="PRODUCTION"){
+if(process.env.NODE_ENV==="production"){
   app.use(express.static(path.join(__dirname,"/frontend/dist")))
   app.get("*",(req,res)=>{
     res.sendFile(path.resolve(__dirname,"frontend","dist","index.html"))
