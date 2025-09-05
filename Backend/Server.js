@@ -19,8 +19,8 @@ app.use(express.json({limit:"10mb"}))
 app.use(cookieParser())
 const __dirname=path.resolve()
 app.use(cors({
-  origin:["http://localhost:5173",
-          "https://buyglobal.onrender.com"
+  origin:["http://localhost:5173/",
+          "https://buyglobal.onrender.com/"
 
   ],
   credentials:true
