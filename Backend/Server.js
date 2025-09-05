@@ -19,7 +19,7 @@ app.use(express.json({limit:"10mb"}))
 app.use(cookieParser())
 const __dirname=path.resolve()
 app.use(cors({
-  origin:"http://localhost:5173",
+  origin:process.env.NODE_ENV?"http://localhost:5173":"/api",
   credentials:true
 }))
 app.use("/api/auth",authrouter)
