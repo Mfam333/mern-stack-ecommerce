@@ -19,7 +19,7 @@ app.use(express.json({limit:"10mb"}))
 app.use(cookieParser())
 const __dirname=path.resolve()
 app.use(cors({
-  origin:process.env.NODE_ENV?"http://localhost:5173":"/api",
+  origin:process.env.NODE_ENV?"http://localhost:5173":"https://buysphere.onrender.com/api",
   credentials:true
 }))
 app.use("/api/auth",authrouter)
