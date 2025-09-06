@@ -20,7 +20,7 @@ app.use(cookieParser())
 const __dirname=path.resolve()
 app.use(cors({
   origin:["http://localhost:5173",
-          "https://buyglobal.onrender.com/api/"
+          "https://buyglobal.onrender.com"
 
   ],
   credentials:true
