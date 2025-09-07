@@ -31,6 +31,10 @@ app.use("/api/cart",cartrouter)
 app.use("/api/coupons",couponrouter)
 app.use("/api/payments",Paymentrouter)
 app.use("/api/analytics",Analyticrouter)
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
 if(process.env.NODE_ENV==="production"){
   app.use(express.static(path.join(__dirname,"../Frontend/dist")))
   app.get("*",(req,res)=>{
