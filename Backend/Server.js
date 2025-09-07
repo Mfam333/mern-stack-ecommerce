@@ -11,13 +11,13 @@ import Analyticrouter from "./routes/Analytics.route.js"
 
  import cors from "cors"
  import path from 'path'
+ import { fileURLToPath } from "url";
 dotenv.config()
 console.log(process.env.PORT)
 
 const app=express()
 app.use(express.json({limit:"10mb"}))
 app.use(cookieParser())
-const __dirname=path.resolve()
 app.use(cors({
   origin:["http://localhost:5173",
           "https://buyglobal.onrender.com"
@@ -35,13 +35,16 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-if(process.env.NODE_ENV==="production"){
-  app.use(express.static(path.join(__dirname,"../Frontend/dist")))
-  app.get("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"../Frontend/dist/index.html"))
-  })
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+// ✅ Serve frontend build folder
+app.use(express.static(path.join(__dirname, "FrontEnd/dist")));
+
+// ✅ Handle all non-API routes by sending React index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "FrontEnd/dist", "index.html"));
+});
 
 
 app.listen(process.env.PORT,()=>{
